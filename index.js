@@ -4,6 +4,7 @@ import {
   ref,
   push,
   onValue,
+  remove,
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -35,15 +36,18 @@ function render(leads) {
 }
 
 onValue(referenceInDB, function (snapshot) {
-  const snapshotValues = snapshot.val();
-  const leads = Object.values(snapshotValues);
-  console.log(leads);
+  const snapshotDoesExist = snapshot.exists();
 
-  render(leads);
+  if (snapshotDoesExist) {
+    const snapshotValues = snapshot.val();
+    const leads = Object.values(snapshotValues);
+    render(leads);
+  }
 });
 
 deleteBtn.addEventListener("dblclick", function () {
-  render(myLeads);
+  remove(referenceInDB);
+  ulEl.innerHTML = "";
 });
 
 inputBtn.addEventListener("click", function () {
