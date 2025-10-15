@@ -1,11 +1,27 @@
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 20px;
   font-family: "Segoe UI", Roboto, sans-serif;
-  min-width: 400px;
-  background: linear-gradient(135deg, #f0f4f8, #dbeafe);
+  max-width: 400px;
+  max-height: 400px;
+  background: linear-gradient(135deg, #96a2ad, #105abb);
   color: #1e293b;
   transition: background 0.3s ease;
+}
+
+/*container*/
+
+#app-container {
+  border: 2px solid #61377e; 
+  padding: 16px;
+  border-radius: 8px; 
+}
+
+/*Label*/
+
+label {
+  color: #61377e;
+  font-weight: bold;
 }
 
 /*Input*/
@@ -16,6 +32,7 @@ input {
   border: 2px solid #3b82f6;
   border-radius: 6px;
   margin-bottom: 8px;
+  margin-top: 4px;
   font-size: 16px;
   transition: border-color 0.3s ease;
 }
